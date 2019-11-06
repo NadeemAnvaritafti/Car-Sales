@@ -47,3 +47,24 @@ body {
     color: #333;
   }
 }
+
+.mainHeading {
+  font-size: 3rem;
+}
+
+.imageDiv img {
+  width: 305px;
+  height: 172px;
+}
+
+.mustangBtn {
+  border: 1px solid #333;
+  background: #33392F;
+  color: white;
+  padding: 5%;
+  &:hover {
+    border: 1px solid white;
+    cursor: pointer;
+  }
+}
+
