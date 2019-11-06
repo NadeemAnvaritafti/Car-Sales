@@ -8,6 +8,9 @@ import Total from './components/Total';
 import {connect} from 'react-redux';
 import {addFeature, removeFeature} from './actions';
 
+import {Route} from 'react-router-dom';
+import WelcomePage from './components/WelcomePage';
+
 const App = (props) => {
   // const state = {
   //   additionalPrice: 0,
@@ -37,16 +40,21 @@ const App = (props) => {
   };
 
   return (
-    <div className="boxes">
-      <div className="box">
-        <Header car={props.car} />
-        <AddedFeatures car={props.car} deleteItem={deleteItem} />
-      </div>
-      <div className="box">
-        <AdditionalFeatures additionalFeatures={props.additionalFeatures} buyItem={buyItem} />
-        <Total car={props.car} additionalPrice={props.additionalPrice} />
-      </div>
-    </div>
+    <main>
+      <Route exact path='/' render={props => <WelcomePage {...props} />} />
+      <Route path='/car'>
+        <div className="boxes">
+          <div className="box">
+            <Header car={props.car} />
+            <AddedFeatures car={props.car} deleteItem={deleteItem} />
+          </div>
+          <div className="box">
+            <AdditionalFeatures additionalFeatures={props.additionalFeatures} buyItem={buyItem} />
+            <Total car={props.car} additionalPrice={props.additionalPrice} />
+          </div>
+        </div>
+    </Route>
+    </main>
   );
 };
 
